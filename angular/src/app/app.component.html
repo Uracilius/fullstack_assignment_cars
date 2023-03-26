@@ -1,0 +1,29 @@
+<html>
+  <script type="text/javascript">
+    (async () => {
+  const response = await fetch(
+    'https://parseapi.back4app.com/classes/Carmodels_Car_Model_List?limit=10000&order=Model&keys=Make,Model',
+    {
+      headers: {
+        'X-Parse-Application-Id': 'z8KIdu12dgjK985C72q8G1RUVumz4tOBIrafPU4K', // This is your app's application id
+        'X-Parse-REST-API-Key': 'KVAkSdTUiyZrQINuKhnCWtFSvchIei0pof1IL9lI', // This is your app's REST API key
+      }
+    }
+  );
+  const data = await response.json(); // Here you have the data that you need
+  const makeModelList = [];
+  data.results.forEach(entry => {
+    const makeModel = entry.Make + ' ' + entry.Model;
+    makeModelList.push(makeModel);
+  });
+  console.log(makeModelList);
+})();
+
+  </script>
+  <body class="container-fluid">
+    <a routerLink="addform" class="formShower">Add a car</a>
+    <br>
+    <a routerLink="downloadcars">DownloadDB</a>
+  </body>
+  <router-outlet></router-outlet>
+</html>
