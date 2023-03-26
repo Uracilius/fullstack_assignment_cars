@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins="http://localhost:54126")
+@CrossOrigin(origins="http://localhost:4200")
 @RequestMapping("cars")
 public class CarController {
 	
@@ -24,12 +24,8 @@ public class CarController {
 	    }
 		
 	    @PostMapping("/createCar")
-	    public String addCar(@RequestBody Car car) {
-	    	
+	    public void addCar(@RequestBody Car car) {
 	        cars.save(car);
-	        
-	        return "Car successfuly saved to the repository";
-	           
 	    }
 	       
 	}
