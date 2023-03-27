@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Car } from '../car';
 import { RegisterService } from '../register.service';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-addform',
   templateUrl: './addform.component.html',
@@ -19,7 +20,7 @@ export class AddformComponent implements OnInit {
   checkInputElement: HTMLScriptElement;
   //Creating Car object
   car:Car = new Car();
-  constructor(private registerService:RegisterService) {
+  constructor(private registerService:RegisterService, private sanitizerService:DomSanitizer) {
     
     //Loading the script to populate Car Model box.
     this.populateBoxElement = document.createElement("script");
@@ -39,6 +40,9 @@ export class AddformComponent implements OnInit {
   carRegister(){
     console.log(this.car);
     this.registerService.registerCar(this.car).subscribe(data=>{alert("Successfully registered")},error=>alert("Sorry, there has been a problem"))
+  }
+  sanitizeData(unsanitizedData:string){
+    return this.sanitizerService.bypassSecurityTrustHtml(unsanitizedData);
   }
 
 }
