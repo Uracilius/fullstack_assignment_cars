@@ -10,7 +10,8 @@
   </div>
   <div class="form-group">
     <label for="dateOfManufacture">Date of Manufacture</label>
-    <input type="text" class="form-control" id="dateOfManufacture" name="dateOfManufacture" placeholder="3/24/2023" [(ngModel)]="car.dateOfManufacture" (ngModelChange)="validateForm()" required>
+    <input type="date" class="form-control" id="dateOfManufacture" name="dateOfManufacture"
+           [(ngModel)]="car.dateOfManufacture" required>
   </div>
   <div class="form-group">
     <label for="countryOfManufacture">Country of Manufacture</label>
