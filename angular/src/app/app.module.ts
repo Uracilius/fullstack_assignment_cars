@@ -7,13 +7,15 @@ import { AddformComponent } from './addform/addform.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DateFormatPipe } from './date-format.pipe';
+import { DateFormatPipe } from './addform/date-format.pipe';
+import { AddByVinComponent } from './add-by-vin/add-by-vin.component';
 const routes: Routes = [{path: 'addform', component: AddformComponent}]
 @NgModule({
   declarations: [
     AppComponent,
     AddformComponent,
-    DateFormatPipe
+    DateFormatPipe,
+    AddByVinComponent
   ],
   imports: [
     BrowserModule,

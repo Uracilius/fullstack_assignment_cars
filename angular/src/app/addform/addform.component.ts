@@ -4,7 +4,7 @@ import { Car } from '../car';
 import { RegisterService } from '../register.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
-import { DateFormatPipe } from '../date-format.pipe';
+import { DateFormatPipe } from './date-format.pipe';
 @Component({
   selector: 'app-addform',
   templateUrl: './addform.component.html',
