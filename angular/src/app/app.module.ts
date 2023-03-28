@@ -9,7 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DateFormatPipe } from './addform/date-format.pipe';
 import { AddByVinComponent } from './add-by-vin/add-by-vin.component';
-const routes: Routes = [{path: 'addform', component: AddformComponent}]
+import * as $ from 'jquery';
+const routes: Routes = [{path: 'addform', component: AddformComponent},
+                        {path: 'addbyvin', component:AddByVinComponent}]
 @NgModule({
   declarations: [
     AppComponent,
