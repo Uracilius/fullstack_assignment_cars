@@ -18,14 +18,16 @@ public class CarController {
 	@Autowired
 	private CarRepositoryInterface cars;
 	    //Following method is just a test to see whether the controller works or not.
-		@GetMapping("/HelloCars")
-		public String Hello(){
-	    	return "Hello!";
+		@GetMapping("/getCars")
+		public Iterable<Car> getCars(){
+			return cars.findAll();
 	    }
 		
 	    @PostMapping("/createCar")
 	    public void addCar(@RequestBody Car car) {
+	    	
 	        cars.save(car);
+
 	    }
 	       
 	}
