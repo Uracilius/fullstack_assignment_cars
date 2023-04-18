@@ -2,19 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Car } from '../car';
 import { RegisterService } from '../register.service';
-import { DomSanitizer } from '@angular/platform-browser';
-import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
-import { DateFormatPipe } from './date-format.pipe';
 @Component({
   selector: 'app-addform',
   templateUrl: './addform.component.html',
-  styleUrls: ['./addform.component.css'],
-  providers: [DateFormatPipe]
+  styleUrls: ['./addform.component.css']
 })
 export class AddformComponent implements OnInit {
   
-  
-
   formValid: boolean = false;
 
   validateForm() {
@@ -25,10 +19,7 @@ export class AddformComponent implements OnInit {
   checkInputElement: HTMLScriptElement;
   //Creating Car object
   car:Car = new Car();
-  
-    
-  
-  constructor(private registerService:RegisterService, private dateFormatPipe: DateFormatPipe, private sanitizerService:DomSanitizer) {
+  constructor(private registerService:RegisterService) {
     
     //Loading the script to populate Car Model box.
     this.populateBoxElement = document.createElement("script");
@@ -48,9 +39,6 @@ export class AddformComponent implements OnInit {
   carRegister(){
     console.log(this.car);
     this.registerService.registerCar(this.car).subscribe(data=>{alert("Successfully registered")},error=>alert("Sorry, there has been a problem"))
-  }
-  sanitizeData(unsanitizedData:string){
-    return this.sanitizerService.bypassSecurityTrustHtml(unsanitizedData);
   }
 
 }

@@ -6,26 +6,23 @@ import { AppComponent } from './app.component';
 import { AddformComponent } from './addform/addform.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DateFormatPipe } from './addform/date-format.pipe';
-import { AddByVinComponent } from './add-by-vin/add-by-vin.component';
-import * as $ from 'jquery';
+import { CarTableDetailComponent } from './table_cars/car-table-detail/car-table-detail.component';
+import { CartablemasterComponent } from './table_cars/cartablemaster/cartablemaster.component';
 const routes: Routes = [{path: 'addform', component: AddformComponent},
-                        {path: 'addbyvin', component:AddByVinComponent}]
+                        {path: 'cartable', component:CartablemasterComponent}]
 @NgModule({
   declarations: [
     AppComponent,
     AddformComponent,
-    DateFormatPipe,
-    AddByVinComponent
+    CarTableDetailComponent,
+    CartablemasterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes),
-    NgbModule
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
